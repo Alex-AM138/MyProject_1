@@ -1,22 +1,37 @@
-import logging
+from collections.abc import Callable
 
 
-def log(func, *, filename=None):
-     if func is None:
-         return lambda func: log(func, filename=filename)
-     logger = logging.getLogger(func.__name__)
-     logger.setLevel(logging.INFO)
-     handler = logging.FileHandler(filename) if filename else logging.StreamHandler()
-     formatter = logging.Formatter('%(message)s')
-     handler.setFormatter(formatter)
-     logger.addHandler(handler)
-     def wrapper(*args, **kwargs):
-         try:
-             logger.info(f"Вызов функции '{func.__name__}' с аргументами {args} и ключевыми аргументами {kwargs}")
-             result = func(*args, **kwargs)
-             logger.info(f"Функция '{func.__name__} OK")
-             return result
-         except Exception as n:
-             logger.error(f"Функция '{func.__name__}' error: {type(n).__name__}. Inputs: {args}, {kwargs}")
-             raise
-     return wrapper
+def log(filename: str = "") -> object:
+    """
+    Декоратор, который автоматически регистрирует детали выполнения функций,
+    такие как время вызова, имя функции, передаваемые аргументы,
+    результат выполнения и информация об ошибках.
+
+    """
+
+    def decorator(func: Callable) -> object:
+        def wrapper(*args: str, **kwargs: int) -> object:
+            try:
+                result = func(*args, **kwargs)
+            except Exception as err:
+                try:
+                    file = open(filename, "a")
+                except FileNotFoundError:
+                    print(f"{func.__name__} error: {err}, inputs: {args}, {kwargs}\n")
+                else:
+                    file.write(f"{func.__name__} error: {err}, inputs: {args}, {kwargs}\n")
+                    file.close()
+                raise Exception(f"Function error: {err}")
+            else:
+                try:
+                    file = open(filename, "a")
+                except FileNotFoundError:
+                    print(f"{func.__name__} ok\n")
+                else:
+                    file.write(f"{func.__name__} ok\n")
+                    file.close()
+                return result
+
+        return wrapper
+
+    return decorator
