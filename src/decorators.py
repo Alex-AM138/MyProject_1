@@ -1,7 +1,7 @@
 import logging
 
 
-def log(func, *, filename=0):
+def log(func, *, filename=None):
      if func is None:
          return lambda func: log(func, filename=filename)
      logger = logging.getLogger(func.__name__)
@@ -20,20 +20,3 @@ def log(func, *, filename=0):
              logger.error(f"Функция '{func.__name__}' error: {type(n).__name__}. Inputs: {args}, {kwargs}")
              raise
      return wrapper
-
-
-@log
-def my_function(x, y):
-    return x + y
-
-
-@log
-def divide(a, b):
-    return a / b
-
-# Тестирование
-my_function(1, 2)  # Успешный вызов
-try:
-    divide(10, 0)  # Ошибка (деление на ноль)
-except ZeroDivisionError:
-    pass
