@@ -1,0 +1,8 @@
+func error: division by zero, inputs: (1, 1), {}
+func ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+func error: division by zero, inputs: (1, 1), {}
+func ok

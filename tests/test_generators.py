@@ -52,6 +52,10 @@ transactions = [
 
 
 def test_filter_by_currency() -> iter:
+    """
+    Тест на вывод данных по коду 'USD' и
+    тест на вывод данных по коду 'RUB'
+    """
     assert next(generators.filter_by_currency(transactions, "USD")) == (
         [
             {
@@ -113,6 +117,9 @@ def transaction_description() -> iter:
 
 
 def test_transaction_descriptions(transaction_description):
+    """
+    Тест на вывод транзакций
+    """
     assert next(transaction_description) == "Перевод организации"
     assert next(transaction_description) == "Перевод со счета на счет"
     assert next(transaction_description) == "Перевод со счета на счет"
@@ -126,6 +133,9 @@ def card_number() -> iter:
 
 
 def test_card_number_generator(card_number) -> iter:
+    """
+    Тест на генерацию номера карты
+    """
     assert next(card_number) == "0000 0000 0000 0000"
     assert next(card_number) == "0000 0000 0000 0001"
     assert next(card_number) == "0000 0000 0000 0002"
