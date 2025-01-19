@@ -1,29 +1,33 @@
 import json
+from typing import Any
 
-import src.external_api as api_exchange
+import src.decorators as decorators
+import src.external_api as api
 
-import  src.decorators as decorator
 
-
-@decorator.log(filename='log.txt')
-def get_json(filename: str) -> dict:
-    """Функция чтения и получения данных из JSON-файла"""
+@decorators.log(filename="log.txt")  # type: ignore[operator]
+def get_json_transactions(filename: str = "") -> Any:
+    """
+    Функция, принимает JSON-файл и возвращает список словарей с данными о финансовых транзакциях.
+    """
     try:
-        with open(filename, 'r', encoding='utf-8') as f:
-            currency_transactions = json.load(f)
-        return currency_transactions
-    except (FileNotFoundError, json.JSONDecodeError):
-        return {}
+        transactions = json.load(open(filename, encoding="utf-8"))
+    except FileNotFoundError:
+        return []
+    except json.decoder.JSONDecodeError:
+        return []
+    else:
+        return transactions
 
-@decorator.log(filename='log.txt')
-def get_amount(transaction: dict) -> float:
-    """Функция возвращает конвертированную сумму в RUB """
-    try:
-        if transaction['operationAmount']['currency'] == 'RUB':
-            return float(transaction['operationAmount']['amount'])
-        else:
-            amount = float(transaction['operationAmount']['amount'])
-            currency = transaction['operationAmount']['currency']
-            return api_exchange.currency_conversion(amount, currency)
-    except (KeyError, ValueError, TypeError) as e:
-        print(f'Ошибка при получении транзакции: {e}')
+
+@decorators.log(filename="log.txt")  # type: ignore[operator]
+def get_transaction_amount(transaction: dict = {}) -> float:
+    """
+    Функция, принимает на вход транзакцию и возвращает конвертированную сумму транзакции в рублях
+    """
+    print(transaction)
+    if transaction["operationAmount"]["currency"]["code"] == "RUB":
+        return float(transaction["operationAmount"]["amount"])
+    else:
+        result = api.currency_conversion(transaction)
+        return result

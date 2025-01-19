@@ -6,3 +6,110 @@ func error: division by zero, inputs: (1, 1), {}
 func ok
 func error: division by zero, inputs: (1, 1), {}
 func ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+test_currency_conversion ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+get_json ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+get_json ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+get_json ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+get_json ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+test_currency_conversion ok
+get_json ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (10.0, 'USD'), {}
+test_currency_conversion error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (10.0, 'USD'), {}
+test_currency_conversion error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (), {}
+test_currency_conversion error: test_currency_conversion() missing 1 required positional argument: 'mock_request', inputs: (), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (10.0, 'USD'), {}
+test_currency_conversion error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (), {}
+currency_conversion error: 'dict' object has no attribute 'raise_for_status', inputs: ({'operationAmount': {'amount': '103.44', 'currency': {'name': 'руб.', 'code': 'RUB'}}},), {}
+test_currency_conversion error: Function error: 'dict' object has no attribute 'raise_for_status', inputs: (), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+get_json ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (100.0, {'name': 'USD.', 'code': 'USD'}), {}
+get_amount error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: ({'operationAmount': {'amount': '100', 'currency': {'name': 'USD.', 'code': 'USD'}}},), {}
+get_json ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (100.0, {'name': 'USD.', 'code': 'USD'}), {}
+get_amount error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: ({'operationAmount': {'amount': '100', 'currency': {'name': 'USD.', 'code': 'USD'}}},), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion error: 401 Client Error: Unauthorized for url: https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=RUB&amount=103.44, inputs: ({'operationAmount': {'amount': '103.44', 'currency': {'name': 'руб.', 'code': 'RUB'}}},), {}
+test_currency_conversion error: Function error: 401 Client Error: Unauthorized for url: https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=RUB&amount=103.44, inputs: (), {}
+get_json_transactions ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (100.0, {'name': 'USD.', 'code': 'USD'}), {}
+get_transaction_amount error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: ({'operationAmount': {'amount': '100', 'currency': {'name': 'USD.', 'code': 'USD'}}},), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion error: 401 Client Error: Unauthorized for url: https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=RUB&amount=103.44, inputs: ({'operationAmount': {'amount': '103.44', 'currency': {'name': 'руб.', 'code': 'RUB'}}},), {}
+test_currency_conversion error: Function error: 401 Client Error: Unauthorized for url: https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=RUB&amount=103.44, inputs: (), {}
+get_json_transactions ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (100.0, {'name': 'USD.', 'code': 'USD'}), {}
+get_transaction_amount error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: ({'operationAmount': {'amount': '100', 'currency': {'name': 'USD.', 'code': 'USD'}}},), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion error: 401 Client Error: Unauthorized for url: https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=RUB&amount=103.44, inputs: ({'operationAmount': {'amount': '103.44', 'currency': {'name': 'руб.', 'code': 'RUB'}}},), {}
+test_currency_conversion error: 401 Client Error: Unauthorized for url: https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=RUB&amount=103.44, inputs: (), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+get_json ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (100.0, {'name': 'USD.', 'code': 'USD'}), {}
+get_amount error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: ({'operationAmount': {'amount': '100', 'currency': {'name': 'USD.', 'code': 'USD'}}},), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion error: 401 Client Error: Unauthorized for url: https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=RUB&amount=103.44, inputs: ({'operationAmount': {'amount': '103.44', 'currency': {'name': 'руб.', 'code': 'RUB'}}},), {}
+test_currency_conversion error: Function error: 401 Client Error: Unauthorized for url: https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=RUB&amount=103.44, inputs: (), {}
+get_json ok
+currency_conversion error: currency_conversion() takes 1 positional argument but 2 were given, inputs: (100.0, {'name': 'USD.', 'code': 'USD'}), {}
+get_amount error: Function error: currency_conversion() takes 1 positional argument but 2 were given, inputs: ({'operationAmount': {'amount': '100', 'currency': {'name': 'USD.', 'code': 'USD'}}},), {}
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
