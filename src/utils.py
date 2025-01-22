@@ -1,9 +1,9 @@
 import json
 import logging
-from typing import Any
 import os
-import src.external_api as api
+from typing import Any
 
+import src.external_api as api
 
 ROOT_DIR = os.path.abspath(os.curdir)
 
@@ -17,7 +17,6 @@ file_handler.setFormatter(file_formatter)
 utils_logger.addHandler(file_handler)
 utils_logger.addHandler(console_handler)
 utils_logger.setLevel(logging.DEBUG)
-
 
 
 def get_json_transactions(filename: str = "") -> Any:

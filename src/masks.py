@@ -17,7 +17,6 @@ masks_logger.addHandler(console_handler)
 masks_logger.setLevel(logging.DEBUG)
 
 
-
 # Реализация первой функции
 def get_mask_card_number(card_number: str) -> str:
     """Функция маскирует номер карты, заменяя цифры на '*'"""
