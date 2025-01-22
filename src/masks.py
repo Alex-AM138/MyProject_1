@@ -3,11 +3,13 @@ import os
 
 ROOT_DIR = os.path.abspath(os.curdir)
 
+logs_dir = os.path.join(ROOT_DIR, "logs")
+os.makedirs(logs_dir, exist_ok=True)
 masks_logger = logging.getLogger(__name__)
 console_handler = logging.StreamHandler()
 console_formatter = logging.Formatter("[%(asctime)s] %(levelname)s - %(name)s - %(message)s - %(pathname)s:%(lineno)d")
 console_handler.setFormatter(console_formatter)
-file_handler = logging.FileHandler(f"{ROOT_DIR}/logs/masks.log", "w")
+file_handler = logging.FileHandler(f"{logs_dir}/masks.log", "w")
 file_formatter = logging.Formatter("[%(asctime)s] %(levelname)s - %(name)s - %(message)s - %(pathname)s:%(lineno)d")
 file_handler.setFormatter(file_formatter)
 masks_logger.addHandler(file_handler)
@@ -22,9 +24,9 @@ def get_mask_card_number(card_number: str) -> str:
     try:
         masks_logger.info("get_mask_card_number attempt to disguise number")
         result = f"{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}"
-    except Exception:
-        masks_logger.error("get_mask_card_number {Exception}")
-        raise Exception(f"{Exception}")
+    except Exception as e:
+        masks_logger.error(f"get_mask_card_number {e}")
+        raise Exception(f"{e}")
     if len(card_number) != 16 or not card_number.isdigit():
         masks_logger.error("get_mask_card_number format error")
         raise Exception("format error")
@@ -39,9 +41,9 @@ def get_mask_account(account_number: str) -> str:
     try:
         masks_logger.info("get_mask_card_number attempt to disguise number")
         result = "**" + account_number[-4:]
-    except Exception:
-        masks_logger.error(f"get_mask_account {Exception}")
-        raise Exception(f"{Exception}")
+    except Exception as e:
+        masks_logger.error(f"get_mask_account {e}")
+        raise Exception(f"{e}")
     if len(account_number) != 20 or not account_number.isdigit():
         masks_logger.error("get_mask_account format error")
         raise Exception("format error")
