@@ -1,0 +1,1 @@
+test_currency_conversion ok
