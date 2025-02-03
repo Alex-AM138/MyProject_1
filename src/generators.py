@@ -1,31 +1,39 @@
-def filter_by_currency(transactions: list, currency: str) -> iter:
+from typing import Generator
+
+import src.decorators as decorators
+
+
+@decorators.log(filename="log.txt")  # type: ignore[operator]
+def filter_by_currency(transactions: list, currency: str) -> Generator:
     """
-    Функция принимает на вход список словарей, представляющих транзакции
-        и возвращает итератор, который поочередно выводит
-    транзакции, где валюта операции соответствует заданной
+    Функция получает на вход список транзакций и возвращает отфильтрованные значения
+    в форме генератора
     """
-    result = list(filter(lambda x: x["operationAmount"]["currency"]["code"] == currency, transactions))
+    if transactions[0].get("currency_code") is None:
+        result = list(filter(lambda x: x.get("operationAmount").get("currency").get("code") == currency, transactions))
+    else:
+        result = list(filter(lambda x: x.get("currency_code") == currency, transactions))
     yield result
 
 
-def transaction_descriptions(transactions: list) -> iter:
+@decorators.log(filename="log.txt")  # type: ignore[operator]
+def transaction_descriptions(transactions: list) -> Generator:
     """
-    Генератор, который принимает список словарей с транзакциями
-     и возвращает описание каждой операции по очереди
+    Функция получает на вход список транзакций и возвращает описание каждой
+    транзакции в форме генератора
     """
-    result = map(lambda x: x["description"], transactions)
+    result = map(lambda description: description["description"], transactions)
     for i in result:
         yield i
 
 
-def card_number_generator(start: int, stop: int) -> iter:
+@decorators.log(filename="log.txt")  # type: ignore[operator]
+def card_number_generator(start: int, end: int) -> Generator:
     """
-        Генератор, который выводит номера банковских карт в формате
-    XXXX XXXX XXXX XXXX, где X — цифра номера карты. Генератор может сгенерировать номера карт
-    в заданном диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999.
-    Генератор должен принимать начальное и конечное значения для генерации диапазона номеров.
+    Функция принимает на вход начальное и конечное значение диапазона,
+    и генерирует номера карт в этом диапазоне.
     """
     card_number = ""
-    for i in range(start, stop):
+    for i in range(start, end):
         card_number = "0" * (16 - len(str(i))) + str(i)
-        yield f"{card_number[:4]} {card_number[4:8]} {card_number[8:12]} {card_number[12:16]}"
+        yield f"{card_number[:4]} {card_number[4:8]} {card_number[8:12]} {card_number[12:17]}"

@@ -6,7 +6,6 @@ import src.decorators as decorators
 from src.external_api import currency_conversion
 
 
-# тестирование функции currency_conversion
 @decorators.log(filename="log.txt")
 @patch("requests.request")
 def test_currency_conversion(mock_get) -> None:

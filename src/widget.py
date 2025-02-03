@@ -1,14 +1,32 @@
+import src.decorators as decorators
 from src.masks import get_mask_account, get_mask_card_number
 
 
-def mask_account_card(unidentified_string: str) -> str:
-    """Функция принимает строку и маскирует ее в зависимости от данных строки"""
-    if "Счет" in unidentified_string:
-        return get_mask_account(unidentified_string)
+@decorators.log(filename="log.txt")  # type: ignore[operator]
+def mask_account_card(input: str) -> str:
+    """
+    Функция принимает на вход строку, содержащую тип данных и номер карты или счёта
+    и возвращает маскированный номер с типом данных
+    """
+    if "Счет" in input:
+        return f"{input[0:len(input) - 20]}{get_mask_account(input[-20:])}"
     else:
-        return get_mask_card_number(unidentified_string)
+        return f"{input[0:len(input) - 16]}{get_mask_card_number(input[-16:])}"
 
 
-def get_date(date_string: str) -> str:
-    """Функция принимает строку и возвращает строку в формате 'ДД.ММ.ГГГГ'"""
-    return date_string[8:10] + "." + date_string[5:7] + "." + date_string[:4]
+@decorators.log(filename="log.txt")  # type: ignore[operator]
+def get_date(input_date: str) -> str:
+    """
+    Функция принимает на вход строку даты
+    и возвращает строку с датой в формате "ДД.ММ.ГГГГ".
+    """
+
+    splited_date = input_date.split("-")
+
+    splited_date.reverse()
+
+    splited_date[0] = splited_date[0][0:2]
+
+    formated_date = ".".join(splited_date)
+
+    return formated_date
