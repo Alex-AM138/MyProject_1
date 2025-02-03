@@ -12,7 +12,7 @@ def test_get_json_transactions_file_err() -> None:
 
 # Тест функции get_json_transactions при чтении пустого файла
 @patch("builtins.open", mock_open(read_data=None))
-def test_get_json_transactions_empty_file():
+def test_get_json_transactions_empty_file() -> None:
     assert get_json_transactions() == []
 
 
@@ -36,19 +36,19 @@ data = """[{
 
 # Тест функции get_json_transactions по типу выходного значения
 @patch("builtins.open", mock_open(read_data=data))
-def test_get_json_transactions_type():
+def test_get_json_transactions_type() -> None:
     assert type(get_json_transactions()) is list
 
 
 # Тест функции get_json_transactions на соответствие выходного значения
 @patch("builtins.open", mock_open(read_data=data))
-def test_get_json_transactions_result():
+def test_get_json_transactions_result() -> None:
     assert get_json_transactions()[0]["operationAmount"]["amount"] == "31957.58"
 
 
 # Тест функции get_transactions_amount на правильность работы в рублях
 @patch("builtins.open", mock_open(read_data=data))
-def test_get_transaction_amount_rub():
+def test_get_transaction_amount_rub() -> None:
     transaction = get_json_transactions()[0]
     assert get_transaction_amount(transaction) == float(31957.58)
 
@@ -60,6 +60,6 @@ def transaction() -> dict:
 
 # Тест функции get_transactions_amount на конвертацию валют
 @patch("requests.request")
-def test_get_transaction_amount_usd(mock_currency: None, transaction):
+def test_get_transaction_amount_usd(mock_currency: None, transaction: dict) -> None:
     mock_currency.return_value.json.return_value = {"result": 10343.8}
     assert get_transaction_amount(transaction) == float(10343.8)
