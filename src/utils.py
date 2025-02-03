@@ -4,6 +4,8 @@ from typing import Any
 import src.decorators as decorators
 import src.external_api as api
 
+# Поправить этот файл
+
 
 @decorators.log(filename="log.txt")  # type: ignore[operator]
 def get_json_transactions(filename: str = "") -> Any:
