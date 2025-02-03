@@ -41,7 +41,8 @@ def get_json_transactions(filename: str = "") -> Any:
 def get_transaction_amount(transaction: dict = {}) -> Any:
     """
     Функция, принимает на вход транзакцию и возвращает сумму транзакции в рублях.
-    Если транзакция была в USD или EUR, происходит обращение к внешнему API и возвращается конвертированная валюта в RUB.
+    Если транзакция была в USD или EUR, происходит обращение к внешнему API
+     и возвращается конвертированная валюта в RUB.
     """
     utils_logger.info("get_transaction_amount attempt to receive transaction amount")
     if transaction["operationAmount"]["currency"]["code"] == "RUB":
