@@ -1,21 +1,25 @@
 import pytest
 
-from src.masks import get_mask_account, get_mask_card_number
+import src.masks as masks
 
 
 @pytest.fixture
 def card_number() -> str:
-    return "Maestro 1596837868705199"
+    return "7000792289606361"
 
 
-def test_masks_card_number(card_number: str) -> None:
-    assert get_mask_card_number(card_number) == "Maestro 1596 83** **** 5199"
+def test_mask_card_number(card_number: str) -> None:
+    assert masks.get_mask_card_number(card_number) == "7000 79** **** 6361"
+    with pytest.raises(Exception):
+        masks.get_mask_card_number("")
 
 
 @pytest.fixture
-def account_number() -> str:
-    return "Счет 64686473678894779589"
+def account() -> str:
+    return "73654108430135874305"
 
 
-def test_masks_account_number(account_number: str) -> None:
-    assert get_mask_account(account_number) == "Счет **9589"
+def test_mask_account(account: str) -> None:
+    assert masks.get_mask_account(account) == "**4305"
+    with pytest.raises(Exception):
+        masks.get_mask_account("")
