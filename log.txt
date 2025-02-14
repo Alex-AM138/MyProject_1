@@ -113,3 +113,118 @@ test_currency_conversion ok
 get_json_transactions ok
 currency_conversion ok
 get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+get_json_transactions ok
+currency_conversion ok
+get_transaction_amount ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+currency_conversion ok
+func error: division by zero, inputs: (1, 1), {}
+func ok
+currency_conversion ok
+test_currency_conversion ok
+currency_conversion ok

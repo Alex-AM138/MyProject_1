@@ -11,7 +11,11 @@ utils_logger = logging.getLogger(__name__)
 console_handler = logging.StreamHandler()
 console_formatter = logging.Formatter("[%(asctime)s] %(levelname)s - %(name)s - %(message)s - %(pathname)s:%(lineno)d")
 console_handler.setFormatter(console_formatter)
+
+file_handler = logging.FileHandler(os.path.join(ROOT_DIR, "logs", "utils.log"), "w")
+=======
 file_handler = logging.FileHandler(f"{ROOT_DIR}/logs/utils.log", "w")
+
 file_formatter = logging.Formatter("[%(asctime)s] %(levelname)s - %(name)s - %(message)s - %(pathname)s:%(lineno)d")
 file_handler.setFormatter(file_formatter)
 utils_logger.addHandler(file_handler)
@@ -21,7 +25,8 @@ utils_logger.setLevel(logging.DEBUG)
 
 def get_json_transactions(filename: str = "") -> Any:
     """
-    Функция, принимает JSON-файл и возвращает список словарей с данными о финансовых транзакциях.
+    Функция, принимает на вход путь до JSON-файла и возвращает список словарей.
+    Если файл пустой или не найден, функция возвращает пустой список.
     """
     try:
         utils_logger.info(f"attempt to open file {filename}")
@@ -37,9 +42,15 @@ def get_json_transactions(filename: str = "") -> Any:
         return transactions
 
 
+
+def get_transaction_amount(transaction: dict = {}) -> Any:
+=======
 def get_transaction_amount(transaction: dict = {}) -> float:
+
     """
-    Функция, принимает на вход транзакцию и возвращает конвертированную сумму транзакции в рублях
+    Функция, принимает на вход транзакцию и возвращает сумму транзакции в рублях.
+    Если транзакция была в USD или EUR, происходит обращение к внешнему API
+     и возвращается конвертированная валюта в RUB.
     """
     utils_logger.info("get_transaction_amount attempt to receive transaction amount")
     if transaction["operationAmount"]["currency"]["code"] == "RUB":
@@ -48,4 +59,5 @@ def get_transaction_amount(transaction: dict = {}) -> float:
     else:
         utils_logger.info("get_transaction_amount attempt to convert transaction amount")
         result = api.currency_conversion(transaction)
+        utils_logger.info("get_transaction_amount successfully")
         return result
